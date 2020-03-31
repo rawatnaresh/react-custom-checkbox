@@ -1,11 +1,27 @@
 import React from "react";
-import "./styles.css";
+import Checkbox from "./Checkbox";
+import styled from "styled-components";
 
+const Wrapper = styled.div`
+  font-family: sans-serif;
+`;
+const Content = styled.span`
+  margin-left: 5px;
+`;
+const Header = styled.p``;
+
+const genres = ["Romance", "Action", "Drama", "Comedy"];
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Wrapper>
+      <>
+        <Header>Select Genre</Header>
+        {genres.map((g, i) => (
+          <Checkbox name={"genre"} value={g}>
+            <Content>{g}</Content>
+          </Checkbox>
+        ))}
+      </>
+    </Wrapper>
   );
 }
